@@ -18,7 +18,8 @@ public class Producto {
     private int cantidad;
     private Promocion promocion;
 
-    public Producto(String nombre, double precioCompra, double precioVenta, int cantidad, double porcentajeDcto, Date vigencia) {
+    public Producto(String nombre, double precioCompra,
+            double precioVenta, int cantidad, double porcentajeDcto, Date vigencia) {
         this.nombre = nombre;
         this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;

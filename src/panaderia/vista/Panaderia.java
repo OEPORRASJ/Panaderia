@@ -5,8 +5,10 @@
  */
 package panaderia.vista;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 import panaderia.modelo.Producto;
 import panaderia.modelo.Promocion;
 import panaderia.modelo.Venta;
@@ -19,27 +21,58 @@ import panaderia.modelo.Inventario;
  */
 public class Panaderia {
 
-    public static void main(String[] args) {
-        Date vigencia = new Date(2018,02,30,8,30,00);
-        Date fecha2 = new Date(2018,03,05);
-        Date fecha = new Date();
+    public static void main(String[] args) throws ParseException {
+        Scanner lector = new Scanner(System.in);
+        Inventario panaderia = new Inventario();  
         
-  
-        Cliente cliente1 = new Cliente ("paco", "35257582");
+         System.out.println("Panaderia El Triunfo-Menu Principal");
+        System.out.println("Seleccione una opcion:"
+                + " \n 1.Registrar Producto \n 2.Eliminar Producto \n 3.Realizar Venta \n 4.Eliminar Venta"
+                + " \n 5.Abastecimiento \n 6.Mostrar Caja \n 7.Historial de Ventas"
+                + " \n 8.Mostrar Inventario \n 9.Ganancias Totales ");
         
-        Producto p1 = new Producto("Queso", 7000, 10000, 5, 0.25, vigencia);
-        Producto p2 = new Producto("Pan", 100, 300, 300,0.18, fecha2);
-      
-        Venta venta1 = new Venta(100, fecha, p2, cliente1);
-        Venta venta2 = new Venta(4,fecha2,p1, cliente1);
-        
-        Inventario panaderia = new Inventario(new ArrayList<>(), new ArrayList <>(), new ArrayList<>());
-        panaderia.addProducto(p1);
-     
        
-        
-        
-        
+        int opcion = lector.nextInt();
+        do {
+            switch(opcion){
+                case 1:
+                    panaderia.anadirProducto();
+                    break;
+                case 2:
+                    panaderia.eliminarProducto();
+                    break;
+                case 3:
+                    panaderia.realizarVenta();
+                    
+                    break;
+                case 4:
+                    panaderia.eliminarVenta();
+                    break;
+                case 5:
+                    panaderia.abastecimiento();
+                    break;
+                case 6:
+                    panaderia.mostrarCaja();
+                    break;  
+                case 7:
+                    panaderia.historialVentas();
+                    break;    
+                case 8:
+                    panaderia.mostrarInventario();
+                    break;
+                case 9:
+                    panaderia.gananciasTotales();
+             
+                
+            }
+        System.out.println("Panaderia El Triunfo-Menu Principal");
+        System.out.println("Seleccione una opcion:"
+                + " \n 1.Registrar Producto \n 2.Eliminar Producto \n 3.Realizar Venta \n 4.Eliminar Venta"
+                + " \n 5.Abastecimiento \n 6.Mostrar Caja \n 7.Historial de Ventas"
+                + " \n 8.Mostrar Inventario \n 9.Ganancias Totales");
+            opcion = lector.nextInt();
+        } while (opcion != 0 && opcion <= 9);
+      
         
         
     }
